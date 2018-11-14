@@ -10,4 +10,5 @@ photo and get more information about that user. On the screen is a way to rate t
 
 ![knipsel](app/doc/Knipsel.PNG) 
 ![knipsel2](app/doc/knipsel2.PNG)
-img[alt=knipsel] { width: 200px; }
+
+<img src="app/doc/Knipsel.png" width="200">
