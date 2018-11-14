@@ -1,7 +1,12 @@
 package com.example.anneh.friendsr;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 import java.util.ArrayList;
@@ -62,6 +67,28 @@ public class MainActivity extends AppCompatActivity {
         // Set adapter containing images to gridview
         gridview.setAdapter(adapter);
 
+        gridview.setOnItemClickListener(new GridItemClickListener());
 
+
+    }
+    private class GridItemClickListener implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            // parent is adapterview?
+            Friend clickedfriend = (Friend) parent.getItemAtPosition(position);
+
+            // direct user form MainActivity to ProfileActivity
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+
+            /* pass Friend objects (key-value) with intents, allowing you to retrieve the value from
+            the intent in the next activity. Extract it in ProfileActivity using the key "clicked_friend".
+            */
+            intent.putExtra("clicked_friend", clickedfriend);
+            startActivity(intent);
+
+            Log.d("Friend", clickedfriend.getName());
+
+        }
     }
 }
