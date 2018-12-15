@@ -11,6 +11,6 @@ photo and get more information about that user. On the screen is a way to rate t
 
 <p align="center">
   <img src="https://github.com/AnneHS/Friendsr/blob/master/app/doc/main.png" height="5%" width="25%"/> <img
-  src="https://github.com/AnneHS/Friendsr/blob/master/app/doc/won.profile" height="5%" width="25%"/>
+  src="https://github.com/AnneHS/Friendsr/blob/master/app/doc/profile.png" height="5%" width="25%"/>
 </p>
 
