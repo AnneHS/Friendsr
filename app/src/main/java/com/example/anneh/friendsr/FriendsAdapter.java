@@ -19,13 +19,12 @@ public class FriendsAdapter extends ArrayAdapter<Friend> {
     private ArrayList friends;
     ImageView image;
     TextView text;
-    Context context;
 
     // Constructor
     public FriendsAdapter(Context context, int resource, ArrayList<Friend> objects) {
         super(context, resource, objects);
 
-        // reference to list of friends = objects?
+        // Reference to list of friends
         friends = objects;
     }
 
@@ -37,18 +36,18 @@ public class FriendsAdapter extends ArrayAdapter<Friend> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.grid_item, parent, false);
         }
 
-        // get access to the layout's views
+        // Get reference to image & TextView
         image = convertView.findViewById(R.id.imageView);
         text = convertView.findViewById(R.id.textView);
 
-        // get friend (for loop in printer?)
+        // Get friend for position in GridGiew
         friend = (Friend) friends.get(position);
 
-        // get corresponding name and picture
+        // Get corresponding name and picture
         String name = friend.getName();
         Drawable picture = getContext().getResources().getDrawable(friend.getDrawableId());
 
-        // load name and picture into text & imageView
+        // Load name and picture into text & imageView
         text.setText(name);
         image.setImageDrawable(picture);
 

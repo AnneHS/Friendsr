@@ -29,17 +29,20 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        // Retrieve friend object from MainActivity
         Intent intent = getIntent();
         retrievedFriend = (Friend) intent.getSerializableExtra("clicked_friend");
 
+        // Get references to image, name, bio and ratingbar
         ImageView image = (ImageView) findViewById(R.id.imageview);
         name = findViewById(R.id.name);
         bio = findViewById(R.id.bio);
         ratingbar = findViewById(R.id.rating);
+
+        // Set listener for ratingbar
         ratingbar.setOnRatingBarChangeListener(new RatingbarChangeListener());
 
-        //
-
+        // Restore rating
         SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
         editor = prefs.edit();
         float saved = prefs.getFloat(retrievedFriend.getName(), 0);
@@ -57,14 +60,9 @@ public class ProfileActivity extends AppCompatActivity {
         @Override
         public void onRatingChanged(RatingBar ratingbar, float rating, boolean fromUser) {
 
-
-            // store rating
+            // Store rating
             editor.putFloat(retrievedFriend.getName(), rating);
-
-            // save changes
             editor.apply();
-
-            Log.d("jo", "OnRatingsChanged");
 
         }
     }

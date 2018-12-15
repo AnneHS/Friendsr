@@ -15,7 +15,7 @@ public class Friend implements Serializable {
         this.drawableId = drawableId;
     }
 
-    // getters
+    // Getters
     public String getName() {
 
         return name;
@@ -36,7 +36,7 @@ public class Friend implements Serializable {
         return rating;
     }
 
-    //setter for rating field
+    // Setter
     public void setRating(float rating) {
 
         this.rating = rating;

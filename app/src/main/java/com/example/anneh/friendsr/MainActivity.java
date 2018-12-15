@@ -23,39 +23,39 @@ public class MainActivity extends AppCompatActivity {
 
         // Create friends (name, bio, drawableId) and add to list
         int cec_id = getResources().getIdentifier("cecile", "drawable", getPackageName());
-        Friend cecile = new Friend("Cécile", "jo", cec_id);
+        Friend cecile = new Friend("Cécile", "Strike", cec_id);
         friends.add(cecile);
 
         int eva_id = getResources().getIdentifier("eva", "drawable", getPackageName());
-        Friend eva = new Friend("Eva", "jo", eva_id);
+        Friend eva = new Friend("Eva", "Nox", eva_id);
         friends.add(eva);
 
         int flo_id = getResources().getIdentifier("floor", "drawable", getPackageName());
-        Friend floor = new Friend("Floor", "jo", flo_id);
+        Friend floor = new Friend("Floor", "Bamboe", flo_id);
         friends.add(floor);
 
         int har_id = getResources().getIdentifier("harry", "drawable", getPackageName());
-        Friend harry = new Friend("Harry", "jo", har_id);
+        Friend harry = new Friend("Harry", "Bakbeest", har_id);
         friends.add(harry);
 
         int jo_id = getResources().getIdentifier("joep", "drawable", getPackageName());
-        Friend joep = new Friend("Joep", "jo", jo_id);
+        Friend joep = new Friend("Joep", "Bakbeest", jo_id);
         friends.add(joep);
 
         int jul_id = getResources().getIdentifier("juliet", "drawable", getPackageName());
-        Friend juliet = new Friend("Juliët", "jo", jul_id);
+        Friend juliet = new Friend("Juliët", "Nox", jul_id);
         friends.add(juliet);
 
         int sab_id = getResources().getIdentifier("sabine", "drawable", getPackageName());
-        Friend sabine = new Friend("Sabine", "jo", sab_id);
+        Friend sabine = new Friend("Sabine", "Nox", sab_id);
         friends.add(sabine);
 
         int ser_id = getResources().getIdentifier("sergen", "drawable", getPackageName());
-        Friend sergen = new Friend("Sergen", "jo", ser_id);
+        Friend sergen = new Friend("Sergen", "Simba", ser_id);
         friends.add(sergen);
 
         int ver_id = getResources().getIdentifier("vermee", "drawable", getPackageName());
-        Friend vermee = new Friend("HJ Vermee", "jo", ver_id);
+        Friend vermee = new Friend("HJ Vermee", "Alaska", ver_id);
         friends.add(vermee);
 
         // Instantiate adapter to store each item
@@ -71,19 +71,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    // Go to corresponding profile activity when friend is clicked
     private class GridItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            // parent is adapterview?
+            // Pass Friend object to profile activity
             Friend clickedfriend = (Friend) parent.getItemAtPosition(position);
-
-            // direct user form MainActivity to ProfileActivity
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-
-            /* pass Friend objects (key-value) with intents, allowing you to retrieve the value from
-            the intent in the next activity. Extract it in ProfileActivity using the key "clicked_friend".
-            */
             intent.putExtra("clicked_friend", clickedfriend);
             startActivity(intent);
 
